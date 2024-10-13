@@ -1,0 +1,473 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 1.5em;
+    margin-right: 24px; /* 添加24px的间距 */
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+}
+
+#searchInput {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+#searchButton {
+    padding: 0.5rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+#logoutButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.content-wrapper {
+    display: flex;
+    min-height: calc(100vh - 120px); /* 假设header和footer各60px高 */
+}
+
+aside {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+main {
+    flex-grow: 1;
+    padding: 1rem 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+main h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 树形导航样式 */
+.tree-nav ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.tree-nav > ul {
+    padding-left: 0;
+}
+
+.tree-nav li {
+    margin-bottom: 5px;
+}
+
+.tree-nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+.tree-nav a:hover {
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        max-height: 200px;
+    }
+}
+
+/* 在文件末尾添以下样式 */
+
+aside h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.toggle-icon {
+    cursor: pointer;
+    margin-right: 5px;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.category-name {
+    cursor: pointer;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 5px;
+}
+
+.category-menu {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+}
+
+.category-item:hover .category-menu {
+    opacity: 1;
+}
+
+.ellipsis-icon {
+    cursor: pointer;
+    padding: 5px;
+    visibility: hidden;
+}
+
+.category-item:hover .ellipsis-icon {
+    visibility: visible;
+}
+
+.category-menu-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.category-menu-content button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.category-menu-content button:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+#categoryContent {
+    flex-grow: 1;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+/* 在文件中添加或修改以下样式 */
+
+.aside-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.aside-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.add-category-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    margin-bottom: 15px;
+}
+
+.add-category-btn i {
+    margin-right: 5px;
+}
+
+.add-category-btn:hover {
+    color: #0056b3;
+}
+
+#newCategoryForm {
+    margin-bottom: 15px;
+}
+
+#newCategoryForm input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+#newCategoryForm button {
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.toggle-icon {
+    cursor: pointer;
+    margin-right: 5px;
+    width: 16px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.category-name[contenteditable="true"] {
+    background-color: #fff;
+    border: 1px solid #007bff;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.edit-actions {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.edit-actions button {
+    padding: 2px 5px;
+    margin-right: 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.save-edit {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.cancel-edit {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.subcategories {
+    width: 100%;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+/* 在文件末尾添加以下样式 */
+
+.category-item {
+    cursor: move;
+    padding: 5px;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+}
+
+.category-item.dragging {
+    opacity: 0.5;
+    background-color: #f0f0f0;
+    border: 2px dashed #007bff;
+}
+
+.category-item.drag-over {
+    border-top: 3px solid #007bff;
+    margin-top: -1px;
+    background-color: #e6f2ff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+/* 添加新样式 */
+.category-item.drag-over::before {
+    content: '放置在这里';
+    color: #007bff;
+    font-size: 0.8em;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid #007bff;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.content-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.content-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#editActions {
+    display: flex;
+    gap: 10px;
+}
+
+#editActions button,
+#uploadButton {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+#editActions button:hover,
+#uploadButton:hover {
+    background-color: #0056b3;
+}
+
+#saveButton {
+    background-color: #28a745;
+}
+
+#cancelButton {
+    background-color: #dc3545;
+}
+
+#editControls {
+    margin-top: 10px;
+}
+
+#editControls button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#editControls button:last-child {
+    background-color: #dc3545;
+}
+
+#fileUpload {
+    margin-top: 10px;
+}
+
+.category-item.selected > .category-header > .category-name {
+    font-weight: bold;
+    color: #007bff;
+}

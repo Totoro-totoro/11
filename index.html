@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏目的知识库</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>夏目的知识库</h1>
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="搜索...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="path/to/user-avatar.jpg" alt="用户头像" class="user-avatar">
+            <button id="logoutButton"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+    </header>
+    <div class="content-wrapper">
+        <aside>
+            <h2>知识库列表</h2>
+            <button id="addCategory" class="add-category-btn">
+                <i class="fas fa-plus"></i> 添加分类
+            </button>
+            <div id="newCategoryForm" style="display: none;">
+                <input type="text" id="newCategoryName" placeholder="输入新分类名称">
+                <button id="submitNewCategory">添加</button>
+                <button id="cancelNewCategory">取消</button>
+            </div>
+            <div id="treeNav" class="tree-nav">
+                <!-- 树形导航将通过JavaScript动态加载 -->
+            </div>
+        </aside>
+        <main id="mainContent">
+            <div class="content-header">
+                <h2 id="contentTitle"></h2>
+                <div class="content-actions">
+                    <div id="editActions">
+                        <button id="editButton">编辑</button>
+                    </div>
+                    <button id="uploadButton">上传文件</button>
+                </div>
+            </div>
+            <div id="categoryContent">
+                <!-- 选中的分类内容将在这里显示 -->
+            </div>
+            <div id="editControls" style="display: none;">
+                <button id="saveButton">保存</button>
+                <button id="cancelButton">取消</button>
+            </div>
+            <div id="fileUpload" style="display: none;">
+                <input type="file" id="fileInput" accept=".doc,.docx,.xls,.xlsx,.pdf,.jpg,.jpeg,.png,.svg">
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2023 夏目的知识库</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
